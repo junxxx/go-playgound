@@ -8,7 +8,11 @@ type Response struct {
 	Msg    string
 }
 
-func Json(data interface{}) ([]byte, error) {
-	res := Response{Data: data}
+func Json(status int, data interface{}, msg string) ([]byte, error) {
+	res := Response{
+		Status: status,
+		Data:   data,
+		Msg:    msg,
+	}
 	return json.Marshal(res)
 }
